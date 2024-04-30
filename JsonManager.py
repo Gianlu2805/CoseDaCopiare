@@ -13,7 +13,8 @@ class JsonManager(object):
         return
 
     def write_data(self, data):
-        self.open_file("w")
+        self.open_file("a")
+        self.file.write("\n")
         json.dump(data, self.file)
         self.close()
         return
@@ -32,7 +33,6 @@ class JsonManager(object):
         except:
             print("Error while opening the file.\nClose the file before opening it")
 
-    def close(self):
-        self.file.close()
-        self.file = None
-        return
+
+    def remove_data_from_file(self):
+        self.open_file("w")
