@@ -7,16 +7,16 @@ jsonManager = JsonManager.JsonManager()
 
 @app.route("/postListener", methods=['POST'])
 def postListener():
-
     if request.method == "POST":
         current_data = request.get_json()
         print(current_data)
         jsonManager.write_data(current_data)
+    return "ok"
 
 @app.route("/getData", methods=['GET'])
 def getData():
     if request.method == "GET":
-        jsonManager.read_data()
+        return jsonManager.read_data()
 
 
 if __name__ == '__main__':
